@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-muted: #888888;
+  --color-card: #0a0a0a;
+  --color-card-hover: #111111;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 255, 255, 0.2);
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-inter);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .minimal-border {
+    border: 1px solid var(--color-border);
+  }
+  .minimal-border:hover {
+    border: 1px solid var(--color-border-hover);
+  }
+  .minimal-card {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
+  }
+  .minimal-card:hover {
+    background-color: var(--color-card-hover);
+    border-color: var(--color-border-hover);
+  }
+  .minimal-input {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-foreground);
+    transition: border-color 0.2s ease;
+  }
+  .minimal-input:focus {
+    outline: none;
+    border-color: #ffffff;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track { 
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { 
+  background: var(--color-border-hover); 
+}
+
+/* Base animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
